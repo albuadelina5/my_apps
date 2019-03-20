@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+ 	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd	
+	">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="model" />
+	
+	
+
+	<bean id = "restaurant" class = "model.Restaurant" scope="singleton">
+		<property name = "menu">
+			<bean id = "menu" class = "model.Menu" scope="singleton">
+			  <property name = "dishes">
+				 <list>
+						<bean class="model.Dish">
+							<constructor-arg type="java.lang.String" value="Fish and chips"/>
+							<constructor-arg type="int" value="25"/>
+						</bean>
+						<bean class="model.Dish">
+							<constructor-arg type="java.lang.String" value="Chicken soup"/>
+							<constructor-arg type="int" value="16"/>
+						</bean>
+						<bean class="model.Dish">
+							<constructor-arg type="java.lang.String" value="Pork steak"/>
+							<constructor-arg type="int" value="35"/>
+						</bean>
+						<bean class="model.Dish">
+							<constructor-arg type="java.lang.String" value="Hamburger"/>
+							<constructor-arg type="int" value="42"/>
+						</bean>
+					</list>
+			  </property>
+			</bean>
+		</property>
+		<property name = "tableList">
+			<list>
+				<bean class="model.Table">
+					<constructor-arg type="int" value="1"/>
+					<constructor-arg type="int" value="2"/>
+				</bean>
+				<bean class="model.Table">
+					<constructor-arg type="int" value="2"/>
+					<constructor-arg type="int" value="4"/>
+				</bean>
+				<bean class="model.Table">
+					<constructor-arg type="int" value="3"/>
+					<constructor-arg type="int" value="2"/>
+				</bean>
+				<bean class="model.Table">
+					<constructor-arg type="int" value="4"/>
+					<constructor-arg type="int" value="4"/>
+				</bean>
+			</list>
+		</property>
+   </bean>
+   
+   
+
+</beans>
